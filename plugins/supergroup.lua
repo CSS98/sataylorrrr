@@ -565,7 +565,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "تنظیمات سوپر گروه💚\nقفل لینک: "..settings.lock_link.."\n قفل  پیام های پشت سرم🔧  :"..settings.flood.."\nتعداد مجاز پیام های پشت سر هم🔧 :"..NUM_MSG_MAX.."\nقفل اسپم پیام های طولانی🔧 :"..settings.lock_spam.."\nقفل عربی و فارسی🔧:"..settings.lock_arabic.."\nقفل اعضا🔧 :"..settings.lock_member.."\nقفل پیام های از راست به چپ🔧 :"..settings.lock_rtl.."\nپاک کننده پیام های جوین و لفت 🔧 :"..settings.lock_tgservice.."\nقفل استیکر 🔧 :"..settings.lock_sticker.."\nهمگانی بودن گروه 🔧 :"..settings.public.."\nوضعیت امنیت بالا 🔧 :"..settings.strict
+  local text = "SuperGroup settings:\nLock links : "..settings.lock_link.."\nLock flood: "..settings.flood.."\nFlood sensitivity : "..NUM_MSG_MAX.."\nLock spam: "..settings.lock_spam.."\nLock Arabic: "..settings.lock_arabic.."\nLock Member: "..settings.lock_member.."\nLock RTL: "..settings.lock_rtl.."\nLock sticker: "..settings.lock_sticker.."\nPublic: "..settings.public.."\n➖➖➖➖➖➖\n@Oo_Persian_Team_oO\nρєяѕιαη вσт"
   return text
 end
 
@@ -1686,7 +1686,7 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked contact posting")
 				return lock_group_contacts(msg, data, target)
 			end
-			if matches[2] == 'strict' then
+			if matches[2] == '' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked enabled strict settings")
 				return enable_strict_rules(msg, data, target)
 			end
@@ -1730,7 +1730,7 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked contact posting")
 				return unlock_group_contacts(msg, data, target)
 			end
-			if matches[2] == 'strict' then
+			if matches[2] == '' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked disabled strict settings")
 				return disable_strict_rules(msg, data, target)
 			end
@@ -1964,7 +1964,7 @@ local function run(msg, matches)
 		end
 
 		if matches[1] == 'help' and not is_owner(msg) then
-			text = "Send /superhelp \n @Taylor_Team \n @negative_officiall"
+			text = "Message /superhelp to @TeleBeyondBot in private for SuperGroup help"
 			reply_msg(msg.id, text, ok_cb, false)
 		elseif matches[1] == 'help' and is_owner(msg) then
 			local name_log = user_print_name(msg.from)
@@ -2034,7 +2034,7 @@ return {
 	"^[#!/]([Aa]dd)$",
 	"^[#!/]([Rr]em)$",
 	"^[#!/]([Mm]ove) (.*)$",
-	"^[#!/]([Ii]nfo)$",
+	"^[#!/]([Ii]fo)$",
 	"^[#!/]([Aa]dmins)$",
 	"^[#!/]([Oo]wner)$",
 	"^[#!/]([Mm]odlist)$",
@@ -2044,8 +2044,8 @@ return {
     "^[#!/]([Bb]lock) (.*)",
 	"^[#!/]([Bb]lock)",
 	"^[#!/]([Tt]osuper)$",
-	"^[#!/]([Ii][Dd])$",
-	"^[#!/]([Ii][Dd]) (.*)$",
+	"^[#!/]([I][d])$",
+	"^[#!/]([i][d]) (.*)$",
 	"^[#!/]([Kk]ickme)$",
 	"^[#!/]([Kk]ick) (.*)$",
 	"^[#!/]([Nn]ewlink)$",
@@ -2079,7 +2079,7 @@ return {
 	"^[#!/]([Rr]ules)$",
 	"^[#!/]([Ss]etflood) (%d+)$",
 	"^[#!/]([Cc]lean) (.*)$",
-	"^[#!/]([Hh]elp)$",
+	"^[#!/]([Hh]lp)$",
 	"^[#!/]([Mm]uteslist)$",
 	"^[#!/]([Mm]utelist)$",
     "[#!/](mp) (.*)",
@@ -2097,4 +2097,4 @@ return {
   pre_process = pre_process
 }
 --End supergrpup.lua
---By @negative_officiall
+--By @Rondoozle
